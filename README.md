@@ -1,6 +1,6 @@
 # Deep Research API
 
-A powerful internal API for enriching company data with environmental compliance (EPA), assets (UCC), and headquarters information.
+An internal API for enriching company data with facilities (source is the EPA), assets (source is UCC), and headquarters information.
 
 ## Features
 
