@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+requests
+duckduckgo-search
+pytest
+httpx
+duckdb
+pandas
+pyarrow
