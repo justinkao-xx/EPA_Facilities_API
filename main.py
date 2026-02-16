@@ -4,8 +4,6 @@ from pydantic import BaseModel
 from typing import List, Optional
 import os
 from services.epa import EPAClient
-from services.ucc import MockUCCProvider
-from services.hq import HQProvider
 
 app = FastAPI(title="Company Intelligence API")
 
@@ -51,46 +49,24 @@ class CompanyRequest(BaseModel):
     website: str
 
 class VerificationResponse(BaseModel):
-    hq_address: Optional[str]
     epa_facilities: List[dict]
-    ucc_assets: List[dict]
 
 # Services
 epa_client = EPAClient()
-ucc_provider = MockUCCProvider()
-hq_provider = HQProvider()
 
 @app.post("/enrich", response_model=VerificationResponse)
 async def enrich_company(request: CompanyRequest, api_key: str = Depends(get_api_key)):
     """
-    Enriches company data with HQ address, EPA facilities, and UCC assets.
+    Enriches company data with EPA facilities.
     Requires API Key authentication.
     """
     company_name = request.company_name
     
-    # 1. HQ Address Lookup
-    hq_address = hq_provider.get_hq_address(company_name)
-    
-    # Simple state extraction heuristic (looking for 2-letter uppercase state code)
-    state_filter = None
-    if hq_address and "Address not found" not in hq_address:
-         # This is a naive extraction. In prod, we'd use a better parser.
-         import re
-         # Matches 2 uppercase letters surrounded by spaces or comma/space
-         match = re.search(r'[\s,]([A-Z]{2})[\s,]', hq_address) 
-         if match:
-             state_filter = match.group(1)
-
-    # 2. EPA Facilities Lookup
-    facilities = epa_client.search_facilities(company_name, state=state_filter)
-    
-    # 3. UCC Assets Lookup (Mock)
-    assets = ucc_provider.get_ucc_assets(company_name)
+    # EPA Facilities Lookup
+    facilities = epa_client.search_facilities(company_name)
     
     return VerificationResponse(
-        hq_address=hq_address,
-        epa_facilities=facilities,
-        ucc_assets=assets
+        epa_facilities=facilities
     )
 
 @app.get("/health")

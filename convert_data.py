@@ -2,7 +2,7 @@ import duckdb
 import os
 
 # Define paths
-CSV_PATH = "/Users/justinkao/Downloads/national_single/national_single.csv"
+CSV_PATH = "national_single.csv"
 PARQUET_PATH = "epa_facilities.parquet"
 
 def convert_csv_to_parquet():

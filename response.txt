@@ -1,0 +1,66 @@
+Note: Unnecessary use of -X or --request, POST is already inferred.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Host tyson-untravestied-slicingly.ngrok-free.dev:443 was resolved.
+* IPv6: 2600:1f16:d83:1202:586c:b39b:b5a4:d61f, 2600:1f16:d83:1200:19d9:6ba:5b9f:5b9, 2600:1f16:d83:1202:318e:b97e:3530:436a, 2600:1f16:d83:1201:b91d:e4e5:6e14:df4, 2600:1f16:d83:1200:a658:2829:a11c:52e8, 2600:1f16:d83:1201:6cd5:bf8e:1af8:c9da
+* IPv4: 3.134.125.175, 3.14.182.203, 3.17.7.232, 3.13.191.225, 3.22.30.40, 3.134.39.220
+*   Trying [2600:1f16:d83:1202:586c:b39b:b5a4:d61f]:443...
+* Connected to tyson-untravestied-slicingly.ngrok-free.dev (2600:1f16:d83:1202:586c:b39b:b5a4:d61f) port 443
+* ALPN: curl offers h2,http/1.1
+* (304) (OUT), TLS handshake, Client hello (1):
+} [348 bytes data]
+*  CAfile: /etc/ssl/cert.pem
+*  CApath: none
+* (304) (IN), TLS handshake, Server hello (2):
+{ [122 bytes data]
+* (304) (IN), TLS handshake, Unknown (8):
+{ [19 bytes data]
+* (304) (IN), TLS handshake, Certificate (11):
+{ [2068 bytes data]
+* (304) (IN), TLS handshake, CERT verify (15):
+{ [79 bytes data]
+* (304) (IN), TLS handshake, Finished (20):
+{ [36 bytes data]
+* (304) (OUT), TLS handshake, Finished (20):
+} [36 bytes data]
+* SSL connection using TLSv1.3 / AEAD-CHACHA20-POLY1305-SHA256 / [blank] / UNDEF
+* ALPN: server accepted h2
+* Server certificate:
+*  subject: CN=*.ngrok-free.dev
+*  start date: Jan 28 18:03:32 2026 GMT
+*  expire date: Apr 28 18:03:31 2026 GMT
+*  subjectAltName: host "tyson-untravestied-slicingly.ngrok-free.dev" matched cert's "*.ngrok-free.dev"
+*  issuer: C=US; O=Let's Encrypt; CN=E8
+*  SSL certificate verify ok.
+* using HTTP/2
+* [HTTP/2] [1] OPENED stream for https://tyson-untravestied-slicingly.ngrok-free.dev/enrich
+* [HTTP/2] [1] [:method: POST]
+* [HTTP/2] [1] [:scheme: https]
+* [HTTP/2] [1] [:authority: tyson-untravestied-slicingly.ngrok-free.dev]
+* [HTTP/2] [1] [:path: /enrich]
+* [HTTP/2] [1] [user-agent: curl/8.7.1]
+* [HTTP/2] [1] [accept: */*]
+* [HTTP/2] [1] [content-type: application/json]
+* [HTTP/2] [1] [x-api-key: my-secret-password]
+* [HTTP/2] [1] [content-length: 49]
+> POST /enrich HTTP/2
+> Host: tyson-untravestied-slicingly.ngrok-free.dev
+> User-Agent: curl/8.7.1
+> Accept: */*
+> Content-Type: application/json
+> X-API-Key: my-secret-password
+> Content-Length: 49
+> 
+} [49 bytes data]
+* upload completely sent off: 49 bytes
+100    49    0     0  100    49      0     40  0:00:01  0:00:01 --:--:--    40100    49    0     0  100    49      0     22  0:00:02  0:00:02 --:--:--    22100    49    0     0  100    49      0     15  0:00:03  0:00:03 --:--:--    15< HTTP/2 200 
+< content-type: application/json
+< date: Sun, 15 Feb 2026 21:03:19 GMT
+< ngrok-agent-ips: 2600:4040:5142:ba00:9941:6371:e815:bf80
+< server: uvicorn
+< content-length: 4075
+< 
+{ [4075 bytes data]
+100  4124  100  4075  100    49   1036     12  0:00:04  0:00:03  0:00:01  1049100  4124  100  4075  100    49   1036     12  0:00:04  0:00:03  0:00:01  1049
+* Connection #0 to host tyson-untravestied-slicingly.ngrok-free.dev left intact
+{"hq_address":"No Lane change when Using EAP — Tesla Forums - Aug 9, 2018 · When I was using EAP yesterday, it turned off every time I put on the turn signal instead of changing lanes. Is this a bug in the …","epa_facilities":[{"registry_id":110071715081,"name":"TESLA ANCHORAGE SSD","address":"8537 CORBIN DR SUITE A","city":"ANCHORAGE","state":"AK","zip_code":"99507","latitude":61.14288,"longitude":-149.85},{"registry_id":110071131788,"name":"TESLA CENTER","address":null,"city":"GLENDALE","state":"AZ","zip_code":"85305","latitude":null,"longitude":null},{"registry_id":110071131790,"name":"TESLA INC","address":"7444 E HAMPTON AVE","city":"MESA","state":"AZ","zip_code":"85209","latitude":33.39142,"longitude":-111.67093},{"registry_id":110071531459,"name":"TESLA COLLISION CENTER","address":"18808 N 32ND ST","city":"PHOENIX","state":"AZ","zip_code":"85050","latitude":33.65648,"longitude":-112.01364},{"registry_id":110072012615,"name":"TESLA SERVICE CENTER","address":"21030 N 19TH AVE","city":"PHOENIX","state":"AZ","zip_code":"85027","latitude":33.67788,"longitude":-112.09986},{"registry_id":110059681429,"name":"TESLA SERVICE CENTER","address":"15001 N HAYDEN RD","city":"SCOTTSDALE","state":"AZ","zip_code":"85260-2538","latitude":33.62064,"longitude":-111.90713},{"registry_id":110002605324,"name":"TESLA INC","address":"7015 S HARL AVE","city":"TEMPE","state":"AZ","zip_code":"85283-4325","latitude":33.35599,"longitude":-111.96649},{"registry_id":110070590772,"name":"TESLA SERVICE CENTER AGOURA HILLS","address":"28721 CANWOOD ST BLDG A","city":"AGOURA HILLS","state":"CA","zip_code":"91301","latitude":34.145726,"longitude":-118.751309},{"registry_id":110002765534,"name":"TESLA ALHAMBRA SSD","address":"1200 W MAIN ST","city":"ALHAMBRA","state":"CA","zip_code":"91801","latitude":34.09156,"longitude":-118.13588},{"registry_id":110071845705,"name":"TESLA  ALISO VIEJO SSD","address":"26502 ALISO CREEK RD","city":"ALISO VIEJO","state":"CA","zip_code":"92656","latitude":33.579146,"longitude":-117.722092},{"registry_id":110071380354,"name":"TESLA ALISO VIEJO COLLISION","address":"41 COLUMBIA","city":"ALISO VIEJO","state":"CA","zip_code":"92656-1460","latitude":33.586534,"longitude":-117.727026},{"registry_id":110071845713,"name":"TESLA ANAHEIM SSD","address":"5635 E LA PALMA AVE","city":"ANAHEIM","state":"CA","zip_code":"92807","latitude":33.861582,"longitude":-117.793941},{"registry_id":110071387397,"name":"TESLA","address":"71808 BAKER BLVD","city":"BAKER","state":"CA","zip_code":"92309","latitude":35.261883,"longitude":-116.080701},{"registry_id":110072094845,"name":"TESLA BAKERSFIELD SSD","address":"2720 AUTO MALL DR","city":"BAKERSFIELD","state":"CA","zip_code":"93313","latitude":35.301012,"longitude":-119.033461},{"registry_id":110072094770,"name":"TESLA BAKERSFIELD SSD","address":"5206 YOUNG ST","city":"BAKERSFIELD","state":"CA","zip_code":"93311","latitude":35.307394,"longitude":-119.09864},{"registry_id":110070593269,"name":"TESLA SERVICE - BAKERSFIELD","address":"5206 YOUNG ST STE B","city":"BAKERSFIELD","state":"CA","zip_code":"93311","latitude":35.307405,"longitude":-119.098098},{"registry_id":110043414953,"name":"TESLA BERKELEY SSD","address":"901 GILMAN ST","city":"BERKELEY","state":"CA","zip_code":"94710","latitude":37.8797,"longitude":-122.29973},{"registry_id":110070593268,"name":"TESLA MOBILE SERVICE BAY AREA NORTH","address":"1501 EASTSHORE HWY","city":"BERKELEY","state":"CA","zip_code":"94710","latitude":37.874034,"longitude":-122.304942},{"registry_id":110070514033,"name":"TESLA SERVICE BERKELEY","address":"901 GILMAN ST","city":"BERKELEY","state":"CA","zip_code":"94710","latitude":37.880568,"longitude":-122.300082},{"registry_id":110071839872,"name":"TESLA BLUE LAKE","address":"777 CASINO WAY","city":"BLUE LAKE","state":"CA","zip_code":"95525","latitude":40.885504,"longitude":-123.999205}],"ucc_assets":[{"collateral":"Accounts Receivable and Inventory","filing_date":"2023-01-01","status":"Active"},{"collateral":"Office Furniture and Fixtures","filing_date":"2022-06-30","status":"Active"}]}
