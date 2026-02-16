@@ -1,14 +1,12 @@
 # Deep Research API
 
-An internal API for enriching company data with facilities (source is the EPA), assets (source is UCC), and headquarters information.
+A powerful internal API for enriching company data with environmental compliance (EPA) information.
 
 ## Features
 
 - **EPA Facility Search**:
   - Extremely fast local lookup using **DuckDB** and Parquet (5M+ records).
-  - Automatic fallback to EPA ECHO API if local data is missing.
-- **Asset Intelligence**: Mock integration with UCC filing data (extensible to real providers like Middesk).
-- **HQ Lookup**: Automated headquarters address discovery.
+  - Automated data download and setup.
 - **Secure**: API Key authentication for internal use.
 - **Production Ready**: Dockerized and ready for deployment.
 
@@ -28,10 +26,9 @@ An internal API for enriching company data with facilities (source is the EPA), 
    ```
 
 3. **Prepare Data**:
-   The EPA dataset is too large for Git. You need the `national_single.csv` file from the EPA website.
+   Download and process the EPA dataset (runs once):
    ```bash
-   # Convert CSV to Parquet for performance
-   python3 convert_data.py
+   python download_data.py
    ```
 
 ## Usage
@@ -69,9 +66,27 @@ curl -X POST "http://localhost:8000/enrich" \
      -d '{"company_name": "Tesla", "website": "tesla.com"}'
 ```
 
+**Response**:
+```json
+{
+  "epa_facilities": [
+    {
+      "registry_id": 110058852331,
+      "name": "TESLA MOTORS INC",
+      "address": "1501 PAGE MILL RD",
+      "city": "PALO ALTO",
+      "state": "CA",
+      "zip_code": "94304",
+      "latitude": 37.42308,
+      "longitude": -122.146608
+    }
+  ]
+}
+```
+
 ## Deployment via Docker
 
-Build and run the container with your secure token:
+Build and run the container (data downloads automatically during build):
 
 ```bash
 docker build -t deep-research-api .
