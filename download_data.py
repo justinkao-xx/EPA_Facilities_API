@@ -13,7 +13,11 @@ PARQUET_FILENAME = "epa_facilities.parquet"
 def download_file(url, filename):
     """Downloads a file from a URL with a progress bar."""
     print(f"Downloading {filename} from {url}...")
-    with requests.get(url, stream=True) as r:
+    # Add User-Agent to avoid being blocked by some servers
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+    }
+    with requests.get(url, stream=True, headers=headers) as r:
         r.raise_for_status()
         total_length = r.headers.get('content-length')
         
@@ -34,9 +38,16 @@ def download_file(url, filename):
 def unzip_file(zip_filepath, extract_to="."):
     """Unzips a zip file."""
     print(f"Unzipping {zip_filepath}...")
-    with zipfile.ZipFile(zip_filepath, 'r') as zip_ref:
-        zip_ref.extractall(extract_to)
-    print("Unzip complete.")
+    try:
+        with zipfile.ZipFile(zip_filepath, 'r') as zip_ref:
+            zip_ref.extractall(extract_to)
+        print("Unzip complete.")
+    except zipfile.BadZipFile:
+        print(f"\nERROR: {zip_filepath} is not a valid zip file.")
+        print("Dumping first 500 bytes of file content for debugging:")
+        with open(zip_filepath, 'rb') as f:
+            print(f.read(500))
+        raise
 
 def main():
     if os.path.exists(PARQUET_FILENAME):
