@@ -13,12 +13,10 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the rest of the application code
 COPY main.py .
 COPY services/ services/
-COPY convert_data.py .
-COPY download_data.py .
+COPY epa_facilities_part_* .
 
-# Download and process data during build
-# This will result in a larger image if not cleaned up properly, currently download_data.py handles cleanup
-RUN python download_data.py
+# Reassemble the data file
+RUN cat epa_facilities_part_* > epa_facilities.parquet && rm epa_facilities_part_*
 
 # Make port 8000 available to the world outside this container
 EXPOSE 8000

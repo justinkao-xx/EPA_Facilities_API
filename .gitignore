@@ -1,5 +1,12 @@
-__pycache__/
 venv/
-*.parquet
-*.csv
+__pycache__/
+*.pyc
 .DS_Store
+*.csv
+*.zip
+
+# Ignore the big parquet files
+*.parquet
+
+# Allow the split parts
+!epa_facilities_part_*
